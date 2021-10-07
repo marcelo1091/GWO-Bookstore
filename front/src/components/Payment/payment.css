@@ -1,0 +1,89 @@
+.payment {
+    width: 100%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #fff; 
+}
+
+.payment form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1.5em;
+}
+
+.payment .input {
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+}
+
+.payment .input label {
+    text-decoration: none;
+    color: #444;
+    font-weight: 300;
+    font-size: 1em;
+}
+
+.payment .submit {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.payment .input input[type=text] {
+    border: 1px solid rgb(218, 218, 218);
+    padding: .5em;
+    border-radius: .5em;
+    transition: .3s;
+}
+
+.payment .input input[type=text]:focus-visible {
+    outline: transparent;
+    border-color: var(--main-color);
+}
+
+.payment .input input[type=submit], .payment a {
+    padding: .5em 1.5em;
+    margin: 0;
+    background-color: var(--main-color);
+    border: var(--main-color) solid 1px;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-weight: 300;
+    font-size: 1em;
+    transition: .5s;
+    cursor: pointer;
+}
+
+.payment .input input[type=submit]:hover, .payment a:hover {
+    color: var(--main-color);
+    background-color: transparent;
+}
+
+.payment .input .error {
+    color: #f03030;
+    text-align: center;
+}
+
+.payment .succes h3 {
+    text-align: center;
+}
+
+.payment a {
+    width: 13em;
+    display: block;
+    margin: auto;
+}
+
+.payment .input .error {
+    font-size: .8em;
+}
+
+.payment .submit .disabled {
+    pointer-events: none;
+    cursor: default;
+    background-color: rgba(179, 179, 179, 0.63)!important;
+    border-color: rgba(179, 179, 179, 0.63)!important;
+}

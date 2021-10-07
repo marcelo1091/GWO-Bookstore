@@ -1,0 +1,51 @@
+:root {
+    --grid-column-width: 30%;
+}
+
+.books {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    column-gap: 2em;
+    row-gap: 2em;
+    align-content: space-between;
+    justify-content: space-between;
+}
+
+.book {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1em;
+    background-color: #fff;
+}
+
+.book h3 {
+    text-align: center;
+}
+
+.book img {
+    overflow: hidden;
+    object-fit: fill;
+}
+
+.book button {
+    padding: .5em 1.5em;
+    margin: 0;
+    background-color: var(--main-color);
+    border: var(--main-color) solid 1px;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-weight: 300;
+    font-size: 1em;
+    transition: .5s;
+    cursor: pointer;
+}
+
+.book button:hover {
+    color: var(--main-color);
+    background-color: transparent;
+}
+
+.book p {
+    text-align: center;
+}

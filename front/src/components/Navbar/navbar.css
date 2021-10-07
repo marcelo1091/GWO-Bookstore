@@ -1,0 +1,53 @@
+.navbarContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #FFF;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.menuContainer {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.menuContainer a {
+    display: flex;
+    padding: 1em 2em;
+    margin: 0;
+    background-color: #fff;
+    text-decoration: none;
+    color: #444;
+    font-weight: 300;
+    font-size: 1.3em;
+    transition: .5s;
+}
+
+.menuItem:hover {
+    background-color: var(--main-color);
+    color: #fff;
+}
+
+.cartContainer {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+}
+
+.cartContainer a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.cartContainer a, .cartContainer span {
+    color: #444;
+    text-decoration: none;
+    font-weight: 300;
+    font-size: 1.3em;
+    line-height: 1em;
+}

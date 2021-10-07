@@ -1,0 +1,94 @@
+.cart {
+    display: flex;
+    flex-direction: column;
+    
+    
+}
+
+.cartItems {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.cart .itemContainer {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: #fff;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    padding: 2em;
+    flex: 250px;
+}
+
+.itemContainer .image {
+    width: 20%;
+}
+
+.itemContainer .description h4 {
+    color: #444;
+    font-weight: 300;
+    font-size: 1.3em;
+    margin-top: 0;
+}
+
+.item .quantity {
+    display: flex;
+    flex-direction: row;
+}
+
+.item .quantityBtn {
+    display: flex;
+    flex-direction: column;
+    margin: 0 1em
+}
+
+.itemContainer .remove button {
+    margin: .5em 0;
+}
+
+.itemContainer .remove{
+    flex: 100px;
+}
+
+.item .quantityBtn button, .itemContainer .remove button {
+    padding: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.cartConfirm {
+    display: flex;
+    padding: 1em 0;
+    justify-content: end;
+}
+
+.cartConfirm a {
+    padding: .5em 1.5em;
+    margin: 0;
+    background-color: var(--main-color);
+    border: var(--main-color) solid 1px;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-weight: 300;
+    font-size: 1em;
+    transition: .5s;
+}
+
+.cartConfirm a:hover {
+    color: var(--main-color);
+    background-color: transparent;
+}
+
+.cartConfirm .disabled {
+    pointer-events: none;
+    cursor: default;
+    background-color: rgba(179, 179, 179, 0.63);
+    border-color: rgba(179, 179, 179, 0.63);
+}
