@@ -9,11 +9,6 @@ function Cart() {
     let paymentButtonDisabledClass
     cartBooks = Object.entries(cartBooks)
 
-    if (cartBooks.length > 0)
-        paymentButtonDisabledClass = ''
-    else
-        paymentButtonDisabledClass = 'disabled'
-
     return (
         <div className="container cart">
             <h3>Twoje wybrane pozycje</h3>
@@ -23,7 +18,7 @@ function Cart() {
                 ))}
             </div>
             <div className="cartConfirm">
-                <Link className={paymentButtonDisabledClass} to="/payment">DALEJ</Link>
+                <Link className={cartBooks.length > 0 ? '' : 'disabled'} to="/payment">DALEJ</Link>
             </div>
         </div>
     )

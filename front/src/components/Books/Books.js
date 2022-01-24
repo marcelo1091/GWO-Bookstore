@@ -1,37 +1,48 @@
 import React, { useState, useEffect } from "react"
+import axios from 'axios'
 import Book from "./Book";
+import Pagination from "./Pagination/Pagination";
 import './books.css'
+
 
 function Books() {
     const [error, setError] = useState(null);
-    const [isLoaded, setIsLoaded] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
     const [items, setItems] = useState([]);
+    const [pageNumber, setPageNumber] = useState(1)
 
-    useEffect(() => {
-        fetch("http://localhost:3001/api/book")
-            .then(res => res.json())
-            .then(
-                (result) => {
-                    setIsLoaded(true);
-                    setItems(result.data);
-                },
-                (error) => {
-                    setIsLoaded(true);
-                    setError(error);
-                }
-            )
-    }, [])
+    const getBooks = async () => {
+        try {
+            await axios.get(`http://localhost:3001/api/book?page=${pageNumber}`)
+                .then(response => {
+                    const { data } = response.data
+                    if (response.status === 200) {
+                        setIsLoading(false)
+                        setItems(data)
+                    }
+                })
+        } catch (error) {
+            setIsLoading(false)
+            setError(error)
+        }
+    }
+
+    useEffect(getBooks, [pageNumber])
 
     if (error) {
         return <div>Error: {error.message}</div>;
-    } else if (!isLoaded) {
+    } else if (isLoading) {
         return <div>Loading...</div>;
     } else {
         return (
-            <div className="books">
-                {items.map(item => (
-                    <Book key={item.id} {...item} />
-                ))}
+            <div>
+                <div className="books">
+                    {items.map(item => (
+                        <Book key={item.id} {...item} />
+                    ))}
+
+                </div>
+                <Pagination pageNumber={pageNumber} setPageNumber={(value) => setPageNumber(value)} />
             </div>
         );
     }

@@ -1,5 +1,3 @@
-import { createStore } from 'redux'
-
 const getLocalStorage = (name) => {
     let data = JSON.parse(localStorage.getItem(name))
     if (!data)
@@ -37,7 +35,7 @@ const removeProductFromCart = (state, payload) => {
     delete (state.cart[payload])
     setLocalStorage('cart', JSON.stringify(state.cart))
     setLocalStorage('cartCount', JSON.stringify(state.cartCount))
-    return {...state.cart}
+    return { ...state.cart }
 }
 
 const setCartCount = (state, action) => {
@@ -58,42 +56,4 @@ const clearCart = state => {
     return { ...state }
 }
 
-const orderConfirmInformation = (state, text) => {
-    state.orderInfo = text
-    return { ...state }
-}
-
-const initialState = {
-    cart: getLocalStorage('cart'),
-    orderInfo: '',
-    cartCount: getLocalStorage('cartCount')
-}
-
-const reducer = (state = initialState, action) => {
-    switch (action.type) {
-        case 'add-to-cart':
-            state.cart = addToCart(state, action.payload)
-            return { ...state }
-        case 'remove-from-cart':
-            state.cart = subtractionFromCart(state, action.payload)
-            return { ...state }
-        case 'remove-product-from-cart':
-            state.cart = removeProductFromCart(state, action.payload)
-            return { ...state }
-        case 'order-comfirm':
-            state = clearCart(state)
-            return { ...state }
-        case 'order-info':
-            state = orderConfirmInformation(state, action.payload)
-            return { ...state }
-        default:
-            return state
-    }
-
-
-}
-
-const store = createStore(reducer,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
-
-export default store
+export default { getLocalStorage, setLocalStorage, addToCart, subtractionFromCart, removeProductFromCart, setCartCount, clearCart }

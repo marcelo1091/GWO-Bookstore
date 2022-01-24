@@ -49,3 +49,60 @@
 .book p {
     text-align: center;
 }
+
+.paginationContainer {
+    margin-top: 2em;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+}
+
+.paginationContainer button, .paginationContainer span {
+    border: none;
+    font-size: 1em;
+    padding: 0;
+}
+
+.paginationContainer button {
+    cursor: pointer;
+}
+
+.paginationContainer .pages {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.paginationContainer .arrow {
+    text-transform: uppercase;
+    color: var(--main-color);
+    display: flex;
+    align-items: center;
+}
+
+.paginationContainer .arrow span {
+    font-size: 2em;
+}
+
+.paginationContainer button:hover {
+    color: var(--secound-color);
+}
+
+.disabled {
+    pointer-events: none;
+    cursor: default;
+    background-color: rgba(179, 179, 179, 0.63);
+    border-color: rgba(179, 179, 179, 0.63);
+}
+
+.paginationContainer .hidden {
+    visibility: hidden;
+}
+
+.paginationContainer .active {
+    color: var(--main-color);
+}
+
